@@ -16,6 +16,12 @@ const ProfileScreen = ({navigation}:any) => {
         </View>
 
         <CustomListItem
+          title="My Profile"
+          imageSource={require('../../assets/profile.png')}
+          onPress={() => navigation.navigate('My Profile')}
+          />
+
+        <CustomListItem
           title="My Recipes"
           imageSource={require('../../assets/house.png')}
           onPress={() => navigation.navigate('Recipes')}
@@ -28,21 +34,22 @@ const ProfileScreen = ({navigation}:any) => {
         />
    
         <CustomListItem
-          title="Help"
+          title="Contact us"
           imageSource={require('../../assets/question.png')}
-          onPress={() => navigation.navigate('Help')}
+          onPress={() => navigation.navigate('Contact')}
         />
 
-        <CustomListItem
-          title="About"
-          imageSource={require('../../assets/info.png')}
-          onPress={() => navigation.navigate('About')}
-        />
+        
 
         <CustomListItem
           title="Logout"
           imageSource={require('../../assets/logout.png')}
-          onPress={() => navigation.navigate('Logout')}
+          onPress={() =>
+            navigation.reset({
+              index: 0,
+              routes: [{ name: 'Welcome' }],
+            })
+            }
         />
 
         </View>

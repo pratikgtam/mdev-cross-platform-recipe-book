@@ -1,7 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, TouchableOpacity, FlatList, Image, StyleSheet, SafeAreaView } from 'react-native';
 
-interface Recipe {
+export interface Recipe {
   id: string;
   name: string;
   imageUrl: string;
@@ -13,7 +14,7 @@ interface Props {
   recipes: Recipe[];
 }
 
-const RecipeList: React.FC<Props> = ({ recipes }) => {
+const RecipeList: React.FC<Props> = ({ recipes, navigation }: any) => {
 
   const renderRecipeItem = ({ item }: { item: Recipe }) => {
     return (
@@ -29,7 +30,7 @@ const RecipeList: React.FC<Props> = ({ recipes }) => {
   };
 
   const handleRecipePress = (recipe: Recipe) => {
-    // Handle navigation to recipe details page
+    navigation.navigate('RecipeDetails', { recipe });
   };
 
   return (
