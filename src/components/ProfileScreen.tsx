@@ -1,18 +1,11 @@
 import React from "react"
 import {View,Text,Image,StyleSheet} from "react-native"
-// import profileImage from '../../assets/profile.png'
+import CustomListItem from "./list_tile"
 
-const ProfileScreen = () => {
+
+const ProfileScreen = ({navigation}:any) => {
     return (
       <View style={styles.container}>
-
-        <View style={styles.header}>
-       <View style={styles.row}>
-         
-            <Text style={styles.sectionTitle}>Welcome</Text>   
-              
-            </View>
-          </View>
           
         <View style={styles.header}>    
           <Image
@@ -21,76 +14,37 @@ const ProfileScreen = () => {
           />
           <Text style={styles.username}>John Doe</Text>
         </View>
-  
-        <View style={styles.header}>
-        <View style={styles.row}>
-          <Image
-            source={require('../../assets/house.png')}
-            style={styles.icon}
-          />
-          <Text style={styles.sectionTitle}>My Recipes</Text>
-          <Image
-            source={require('../../assets/right-arrow.png')}
-            style={styles.image}
-          />
-          </View>
-          </View>
 
-     <View style={styles.header}>
-       <View style={styles.row}>
-          <Image
-            source={require('../../assets/notification.png')}
-            style={styles.icon}
-          />
-            <Text style={styles.sectionTitle}>Notifications</Text>   
-            <Image
-            source={require('../../assets/right-arrow.png')}
-            style={styles.icon}
-          />       
-            </View>
-          </View>
+        <CustomListItem
+          title="My Recipes"
+          imageSource={require('../../assets/house.png')}
+          onPress={() => navigation.navigate('Recipes')}
+        />
 
-    <View style={styles.header}>
-       <View style={styles.row}>
-          <Image
-            source={require('../../assets/question.png')}
-            style={styles.icon}
-          />
-             <Text style={styles.sectionTitle}>Help</Text>     
-             <Image
-            source={require('../../assets/right-arrow.png')}
-            style={styles.icon}
-          />  
-            </View>
-          </View>
+        <CustomListItem
+          title="Notifications"
+          imageSource={require('../../assets/notification.png')}
+          onPress={() => navigation.navigate('Notifications')}
+        />
+   
+        <CustomListItem
+          title="Help"
+          imageSource={require('../../assets/question.png')}
+          onPress={() => navigation.navigate('Help')}
+        />
 
-    <View style={styles.header}>
-        <View style={styles.row}>
-          <Image
-            source={require('../../assets/info.png')}
-            style={styles.image}
-          />
-            <Text style={styles.sectionTitle}>About</Text>  
-            <Image
-            source={require('../../assets/right-arrow.png')}
-            style={styles.image}
-          />   
-            </View>
-          </View>
+        <CustomListItem
+          title="About"
+          imageSource={require('../../assets/info.png')}
+          onPress={() => navigation.navigate('About')}
+        />
 
-          <View style={styles.header}>
-        <View style={styles.row}>
-          <Image
-            source={require('../../assets/logout.png')}
-            style={styles.image}
-          />
-            <Text style={styles.sectionTitle}>Logout</Text>  
-            <Image
-            source={require('../../assets/right-arrow.png')}
-            style={styles.image}
-          /> 
-            </View>
-          </View>
+        <CustomListItem
+          title="Logout"
+          imageSource={require('../../assets/logout.png')}
+          onPress={() => navigation.navigate('Logout')}
+        />
+
         </View>
       
     );
@@ -101,7 +55,7 @@ const ProfileScreen = () => {
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-      justifyContent: 'center',
+      
       paddingHorizontal: 30,
       paddingTop: 20,   
       paddingBottom:30,
