@@ -1,6 +1,7 @@
 ## Step to run
-1. npx expo start
-2. Select **i** for iOS and **a** for android
+1. yarn add expo or npm add expo
+2. npx expo start
+3. Select **i** for iOS and **a** for android
 
 ## Demo video
 
