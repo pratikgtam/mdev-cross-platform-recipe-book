@@ -3,8 +3,10 @@
 2. Select **i** for iOS and **a** for android
 
 ## Demo video
-1. [Android](https://youtube.com/shorts/9n0rpJ-GEd0)
-2. [iOS](https://youtube.com/shorts/g-61LZK_I70?feature=share)
+
+### [![Android](https://i.ibb.co/d76Wd1c/image1.jpg)](https://youtube.com/shorts/9n0rpJ-GEd0)
+### [![IOS](https://i.ibb.co/ZVg7VB7/image2.jpg)](https://youtube.com/shorts/g-61LZK_I70?feature=share)
+
 
 ## Screenshot
 ![Image 1](https://i.ibb.co/d76Wd1c/image1.jpg)
