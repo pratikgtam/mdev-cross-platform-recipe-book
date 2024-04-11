@@ -1,67 +1,131 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+} from "react-native"; // Added ScrollView
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-
-const LoginScreen = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Login: React.FC = ({ navigation }: any) => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleLogin = () => {
-    // Implement your login logic here
-    console.log('Username:', username);
-    console.log('Password:', password);
+    // if (!email.trim()) {
+    //   alert("Please enter your email address");
+    //   return;
+    // }
+    // if (!password.trim()) {
+    //   alert("Please enter your password");
+    //   return;
+    // }
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(email)) {
+    //   alert("Please enter a valid email address");
+    //   return;
+    // }
+
+    navigation.replace("Home");
+  };
+
+  const handleForgotPassword = () => {
+    console.log("Forgot password link pressed");
+  };
+
+  const handleSignUp = () => {
+    navigation.replace("Signup");
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry={true}
-        value={password}
-        onChangeText={setPassword}
-      />
-      <Button title="Login" onPress={handleLogin} />
-      <Button
-        title="Forgot Password?"
-        onPress={() => navigation.navigate('ForgotPassword')}
-      />
-      <Button
-        title="Sign Up"
-        onPress={() => navigation.navigate('SignUp')}
-      />
-    </View>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.heading}>Login</Text>
+      <View style={styles.inputContainer}>
+        <Icon name="email" size={24} color="#333" />
+        <TextInput
+          style={styles.input}
+          placeholder="Email Address"
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <Icon name="lock" size={24} color="#333" />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+        />
+      </View>
+      <View style={styles.forgotPasswordContainer}>
+        <TouchableOpacity onPress={handleForgotPassword}>
+          <Text style={styles.forgotPassword}>Forgot Password?</Text>
+        </TouchableOpacity>
+      </View>
+      <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>
+        <Text style={styles.loginButtonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleSignUp}>
+        <Text style={styles.signUpLink}>Don't have an account? Sign Up</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
+    flexGrow: 1,
+    padding: 16,
+
+    alignItems: "center",
   },
-  title: {
+  heading: {
     fontSize: 24,
-    marginBottom: 20,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
   },
   input: {
-    width: '100%',
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: '#ccc',
-    paddingHorizontal: 10,
-    marginBottom: 10,
+    flex: 1,
+    marginLeft: 8,
+    borderBottomWidth: 1,
+    borderColor: "#ccc",
+    paddingVertical: 8,
+  },
+  loginButton: {
+    backgroundColor: "#007AFF",
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    alignItems: "center",
+    marginTop: 132,
+    width: "100%",
+  },
+  loginButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  forgotPasswordContainer: {
+    alignSelf: "flex-end",
+    marginTop: 16,
+  },
+  forgotPassword: {
+    color: "#007AFF",
+  },
+  signUpLink: {
+    color: "#007AFF",
+    marginTop: 16,
+    textAlign: "center",
   },
 });
 
-export default LoginScreen;
+export default Login;
