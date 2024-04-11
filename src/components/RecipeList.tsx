@@ -34,10 +34,6 @@ const RecipeList: React.FC<Props> = ({ recipes, navigation }: any) => {
     );
   };
 
-  const handleRecipePress = (recipe: Recipe) => {
-    // navigation.navigate('RecipeDetails', { recipe });
-  };
-
   return (
     <FlatList
       data={recipes}
@@ -50,13 +46,13 @@ const RecipeList: React.FC<Props> = ({ recipes, navigation }: any) => {
 
 const styles = StyleSheet.create({
   recipeContainer: {
-    flex: 1, // Equal horizontal space for each recipe item
-    marginRight: 10, // Add horizontal spacing between recipe items
-    marginBottom: 10, // Add vertical spacing between rows
-    width: "100%", // Occupies full width of the container
+    flex: 1,
+    marginRight: 10,
+    marginBottom: 10,
+    width: "100%",
   },
   image: {
-    width: "100%", // Occupies full width of the container
+    width: "100%",
     height: 150,
     borderRadius: 5,
   },

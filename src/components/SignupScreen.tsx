@@ -15,7 +15,6 @@ const Signup = ({ navigation }) => {
   const [address, setAddress] = useState<string>("");
 
   const handleSignUp = () => {
-    // Basic validation
     if (!name.trim()) {
       alert("Please enter your name");
       return;
@@ -37,29 +36,25 @@ const Signup = ({ navigation }) => {
       return;
     }
 
-    // Additional validation for email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address");
       return;
     }
 
-    // Additional validation for password strength (e.g., minimum length)
     if (password.length < 6) {
       alert("Password must be at least 6 characters long");
       return;
     }
 
-    // Additional validation for age (e.g., must be a number)
     if (isNaN(parseInt(age))) {
       alert("Please enter a valid age");
       return;
     }
 
-    // Implement your registration logic here
     console.log("Sign Up button pressed");
-    // You can navigate to the home screen or login screen after successful registration
-    navigation.replace("Home"); // Replace with the appropriate screen name
+
+    navigation.replace("Home");
   };
 
   return (

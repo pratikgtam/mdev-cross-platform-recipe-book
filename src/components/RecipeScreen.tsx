@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
 import RecipeList from "./RecipeList";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 const RecipesScreen = ({ navigation }: any) => {
   return (

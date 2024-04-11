@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-} from "react-native"; // Added ScrollView
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Login: React.FC = ({ navigation }: any) => {
@@ -14,19 +14,38 @@ const Login: React.FC = ({ navigation }: any) => {
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = () => {
-    // if (!email.trim()) {
-    //   alert("Please enter your email address");
-    //   return;
-    // }
-    // if (!password.trim()) {
-    //   alert("Please enter your password");
-    //   return;
-    // }
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!emailRegex.test(email)) {
-    //   alert("Please enter a valid email address");
-    //   return;
-    // }
+    if (!email.trim()) {
+      alert("Please enter your email address");
+      return;
+    }
+    if (!password.trim()) {
+      alert("Please enter your password");
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    // List of mock credentials
+    const mockCredentials = [
+      { email: "user1@example.com", password: "password1" },
+      { email: "user2@example.com", password: "password2" },
+      { email: "user3@example.com", password: "password3" },
+    ];
+
+    // Check if input email and password match any entry in the list
+    const foundUser = mockCredentials.find(
+      (cred) =>
+        cred.email.toLowerCase() === email.toLocaleLowerCase() &&
+        cred.password === password
+    );
+
+    if (!foundUser) {
+      alert("Incorrect email or password");
+      return;
+    }
 
     navigation.replace("Home");
   };

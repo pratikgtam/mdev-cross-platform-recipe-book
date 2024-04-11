@@ -1,34 +1,42 @@
-import React from 'react';
-import {  Text, Image, TouchableOpacity, StyleSheet, ImageSourcePropType } from 'react-native';
+import React from "react";
+import {
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  ImageSourcePropType,
+} from "react-native";
 
 interface CustomListItemProps {
   title: string;
-  
+
   imageSource: ImageSourcePropType;
   onPress: () => void;
 }
 
-const CustomListItem: React.FC<CustomListItemProps> = ({ title, imageSource, onPress }) => {
+const CustomListItem: React.FC<CustomListItemProps> = ({
+  title,
+  imageSource,
+  onPress,
+}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <Image source={imageSource} style={styles.image} />
-      
-        <Text style={styles.title}>{title}</Text>
-        
-      
+
+      <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
     padding: 10,
     borderBottomWidth: 1,
     marginBottom: 20,
-    borderBottomColor: '#ccc',
+    borderBottomColor: "#ccc",
   },
   image: {
     width: 25,
@@ -41,12 +49,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 5,
   },
   subtitle: {
     fontSize: 14,
-    color: '#666',
+    color: "#666",
   },
 });
 
